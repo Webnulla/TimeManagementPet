@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagement", "TimeManagement\TimeManagement.csproj", "{7359F8A2-E192-4194-812F-B87A3E12655B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{374EAD78-190D-43A5-8104-53A5E3A479EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{D57844AC-E0B4-4373-A61C-1589F0B417BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{54438D7D-DFB2-4470-AE6A-5295D2CF12C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagement.Domain", "TimeManagement.Domain\TimeManagement.Domain.csproj", "{7112DB0E-6AB2-4865-BE51-52943A6E912F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagement.DAL", "TimeManagement.DAL\TimeManagement.DAL.csproj", "{7D2D4054-9FCD-4700-9032-07459B6C7133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagement.Service", "TimeManagement.Service\TimeManagement.Service.csproj", "{2158F972-3128-4B83-9989-ADDCDB508960}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7359F8A2-E192-4194-812F-B87A3E12655B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7359F8A2-E192-4194-812F-B87A3E12655B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7359F8A2-E192-4194-812F-B87A3E12655B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7359F8A2-E192-4194-812F-B87A3E12655B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7112DB0E-6AB2-4865-BE51-52943A6E912F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7112DB0E-6AB2-4865-BE51-52943A6E912F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7112DB0E-6AB2-4865-BE51-52943A6E912F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7112DB0E-6AB2-4865-BE51-52943A6E912F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D2D4054-9FCD-4700-9032-07459B6C7133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D2D4054-9FCD-4700-9032-07459B6C7133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D2D4054-9FCD-4700-9032-07459B6C7133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D2D4054-9FCD-4700-9032-07459B6C7133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2158F972-3128-4B83-9989-ADDCDB508960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2158F972-3128-4B83-9989-ADDCDB508960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2158F972-3128-4B83-9989-ADDCDB508960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2158F972-3128-4B83-9989-ADDCDB508960}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7112DB0E-6AB2-4865-BE51-52943A6E912F} = {374EAD78-190D-43A5-8104-53A5E3A479EA}
+		{7D2D4054-9FCD-4700-9032-07459B6C7133} = {D57844AC-E0B4-4373-A61C-1589F0B417BC}
+		{2158F972-3128-4B83-9989-ADDCDB508960} = {54438D7D-DFB2-4470-AE6A-5295D2CF12C7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87DD16A4-9B04-4F45-A6DC-EFB50F8C61A9}
+	EndGlobalSection
+EndGlobal

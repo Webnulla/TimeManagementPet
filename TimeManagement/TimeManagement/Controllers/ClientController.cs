@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TimeManagement.DAL.Repository.Interfaces;
 using TimeManagement.Domain.Entities;
+using TimeManagement.Service.Service;
 
 namespace TimeManagement.Controllers
 {
@@ -9,43 +10,43 @@ namespace TimeManagement.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly IClientRepository _repository;
+        private readonly IService<Client> _service;
 
-        public ClientController(IClientRepository repository)
+        public ClientController(IService<Client> service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet("all")]
         public async Task<IActionResult> GetAllClients()
         {
-            return Ok(await _repository.GetAll());
+            return Ok(await _service.GetAll());
         }
 
         [HttpGet("get/{id}")]
         public async Task<IActionResult> GetByIdClient([FromRoute] int id)
         {
-            return Ok(await _repository.Get(id));
+            return Ok(await _service.Get(id));
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> CreateClient([FromBody] Client client)
         {
-            await _repository.Add(client);
+            await _service.Create(client);
             return Ok();
         }
 
         [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdateClient([FromBody] Client client)
         {
-            await _repository.Update(client);
+            await _service.Update(client);
             return Ok();
         }
 
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteClient([FromRoute] int id)
         {
-            await _repository.Delete(id);
+            await _service.Delete(id);
             return Ok();
         }
     }

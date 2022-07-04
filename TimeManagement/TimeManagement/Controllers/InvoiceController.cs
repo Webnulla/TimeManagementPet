@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TimeManagement.DAL.Repository.Interfaces;
 using TimeManagement.Domain.Entities;
+using TimeManagement.Service.Service;
 
 namespace TimeManagement.Controllers
 {
@@ -9,43 +10,43 @@ namespace TimeManagement.Controllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
-        private readonly IInvoiceRepository _repository;
+        private readonly IService<Invoice> _service;
 
-        public InvoiceController(IInvoiceRepository repository)
+        public InvoiceController(IService<Invoice> service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet("all")]
         public async Task<IActionResult> GetAllInvoices()
         {
-            return Ok(await _repository.GetAll());
+            return Ok(await _service.GetAll());
         }
 
         [HttpGet("get/{id}")]
         public async Task<IActionResult> GetByIdInvoice([FromRoute] int id)
         {
-            return Ok(await _repository.Get(id));
+            return Ok(await _service.Get(id));
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> CreateInvoice([FromBody] Invoice invoice)
         {
-            await _repository.Add(invoice);
+            await _service.Create(invoice);
             return Ok();
         }
 
         [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdateInvoice([FromBody] Invoice invoice)
         {
-            await _repository.Update(invoice);
+            await _service.Update(invoice);
             return Ok();
         }
 
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteInvoice([FromRoute] int id)
         {
-            await _repository.Delete(id);
+            await _service.Delete(id);
             return Ok();
         }
     }

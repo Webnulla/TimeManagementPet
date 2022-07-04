@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TimeManagement.DAL.Repository.Interfaces;
 using TimeManagement.Domain.Entities;
+using TimeManagement.Service.Service;
 using Task = TimeManagement.Domain.Entities.Task;
 
 namespace TimeManagement.Controllers
@@ -10,43 +11,43 @@ namespace TimeManagement.Controllers
     [ApiController]
     public class TaskController : ControllerBase
     {
-        private readonly ITaskRepository _repository;
+        private readonly IService<Task> _service;
 
-        public TaskController(ITaskRepository repository)
+        public TaskController(IService<Task> service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet("all")]
         public async Task<IActionResult> GetAllTask()
         {
-            return Ok(await _repository.GetAll());
+            return Ok(await _service.GetAll());
         }
 
         [HttpGet("get/{id}")]
         public async Task<IActionResult> GetByIdTask([FromRoute] int id)
         {
-            return Ok(await _repository.Get(id));
+            return Ok(await _service.Get(id));
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> CreateTask([FromBody] Task task)
         {
-            await _repository.Add(task);
+            await _service.Create(task);
             return Ok();
         }
 
         [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdateTask([FromBody] Task task)
         {
-            await _repository.Update(task);
+            await _service.Update(task);
             return Ok();
         }
 
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteTask([FromRoute] int id)
         {
-            await _repository.Delete(id);
+            await _service.Delete(id);
             return Ok();
         }
     }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TimeManagement.DAL.Repository.Interfaces;
 using TimeManagement.Domain.Entities;
+using TimeManagement.Service.Service;
 
 namespace TimeManagement.Controllers
 {
@@ -9,43 +10,43 @@ namespace TimeManagement.Controllers
     [ApiController]
     public class ContractController : ControllerBase
     {
-        private readonly IContractRepository _repository;
+        private readonly IService<Contract> _service;
 
-        public ContractController(IContractRepository repository)
+        public ContractController(IService<Contract> service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet("all")]
         public async Task<IActionResult> GetAllContracts()
         {
-            return Ok(await _repository.GetAll());
+            return Ok(await _service.GetAll());
         }
 
         [HttpGet("get/{id}")]
         public async Task<IActionResult> GetByIdContract([FromRoute] int id)
         {
-            return Ok(await _repository.Get(id));
+            return Ok(await _service.Get(id));
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> CreateContract([FromBody] Contract contract)
         {
-            await _repository.Add(contract);
+            await _service.Create(contract);
             return Ok();
         }
 
         [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdateContract([FromBody] Contract contract)
         {
-            await _repository.Update(contract);
+            await _service.Update(contract);
             return Ok();
         }
 
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteContract([FromRoute] int id)
         {
-            await _repository.Delete(id);
+            await _service.Delete(id);
             return Ok();
         }
     }
